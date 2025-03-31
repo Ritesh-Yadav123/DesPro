@@ -1,163 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management System</title>
-  <style>
-    .box {
-      height: 100vh;
-      width: 100%;
-      background-image: url('star-1.svg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .frame {
-      background-color: #fefdde;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 1080px;
+        width: 1920px;
+        background-color: #7deff8;
+      }
+      /* #main {
 
-    .box .overlap-group-wrapper {
-      height: 418px;
-      left: -106px;
-      position: absolute;
-      top: -63px;
-      width: 445px;
-    }
-    
-    .box .overlap-group {
-      height: 583px;
-      left: -108px;
-      position: relative;
-      top: -54px;
-      width: 1286px;
-    }
+      } */
+      #header {
+        font-family: "Jacques Francois Shadow", serif;
+        font-weight: 400;
+        font-size: 54px;
+        font-style: normal;
+        width: 50%;
+        margin: auto;
+        margin-top: 200px;
+      }
+      #socialIcon {
 
-    .box .ellipse {
-      background-color: #a6fbf3;
-      border-radius: 316.5px/291.5px;
-      box-shadow: 0px 4px 4px 281px #51ecdd21, 0px 4px 4px #00000040;
-      filter: blur(47.5px);
-      height: 583px;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 633px;
-    }
-
-    .box .div {
-      background-color: #5ee4a3;
-      border-radius: 159.5px/144.5px;
-      height: 289px;
-      right: -49px;
-      position: absolute;
-      bottom: -78px;
-      width: 319px;
-    }
-
-    .box .ellipse-2 {
-      background-color: #d46af8;
-      border-radius: 99px/134px;
-      height: 268px;
-      left: 1029px;
-      position: absolute;
-      bottom: 60px;
-      width: 198px;
-    }
-
-    h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -190%);
-      z-index: 1;
-      font-size: 50px;
-      color: #000;
-      font-family: "Arial", sans-serif;
-      text-align: center;
-    }
-    #login{
-      background-color:white;
-      height: 300px;
-      width: 367px;
-      margin: auto;
-      margin-top:189px;
-      /* position: relative; */
-      /* top: 12; */
-      translate: -25px 10px;
-      border: 2px solid black;
-    }
-    #head {
-      margin-left: 147px;
-      color: red;
-      font-size: 45px;
-      text-shadow: 2px 1px 1px green;
-    }
-    input {
-      padding: 6px;
-      margin: 13px;
-      margin-left: 94px;
-      height: 24px;
-      background-color:rgb(200, 242, 189);
-      width: auto;
-      border: 1px solid red;
-      box-shadow: 2px 1px 2px rgb(61, 22, 67);
-    }
-    #log_btn, #signUp_btn{
-      background-color: rgb(122, 153, 51);
-      margin-left: 156px;
-      margin-top: 12px;
-      height: 42px;
-      width: auto;
-      border-radius: 22px;
-    }
-    #log_btn, #signUp_btn:hover{
-      cursor: pointer;
-    }
-
-    #login{
-      box-shadow: 2px 2px 2px gray;
-      border-radius: 12px;
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="box">
-    <div class="frame">
-      <div class="overlap-group-wrapper">
-        <div class="overlap-group">
-          <div class="ellipse"></div>
-        </div>
-      </div>
-      <h1>TASK MANAGEMENT SYSTEM</h1>
-      <div id="login">
-        <div id="head">
-          TMS
-        </div>
-        <div id="email">
-          <input type="text" placeholder="enter your email/username">
-        </div>
-        <div id="password">
-          <input type="password" placeholder="enter your password">
-        </div>
-        <button id="log_btn">LOG IN</button>
-        <button id="signUp_btn">SignUp</button>
-      </div>
-      <div class="overlap">
-        <div class="div"></div>
-        <div class="ellipse-2"></div>
-      </div>
+      }
+      div > img {
+        height: 34px;
+        width: 39px;
+        position: relative;
+        left: 977px;
+        bottom: -198px;
+        opacity: 1;
+      }
+      #aboutMe {
+        height: 38px;
+        width: 117px;
+        background-color: red;
+        position: relative;
+        left: 908px;
+      }
+      button {
+        height: 43px;
+        width: 136px;
+        box-shadow: 2px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <button id="aboutMe">About Me</button>
+      <p id="header">WelCome To TMS</p>
     </div>
-  </div>
-
-</body>
+    <div id="socialIcon">
+      <img src="./Images/insta.svg" />
+      <img src="./Images/whatsApp.svg" />
+      <img src="./Images/Vector.svg" />
+    </div>
+  </body>
 </html>
