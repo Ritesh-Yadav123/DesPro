@@ -6,9 +6,9 @@ const app=express();
 const pathname=path.join(__dirname,'Public')
 app.use(express.static(pathname));
 
-// app.get("/",(req,res)=>{
-//     res.send(" I AM CREATING TMS in my local machine");
-// })
+app.get("/lauch",(req,res)=>{
+    res.sendFile(`${pathname}/launch.html`)
+})
 
 app.get("*",(req,res)=>{
     res.sendFile(`${pathname}/error.html`)

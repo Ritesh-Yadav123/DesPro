@@ -31,16 +31,27 @@
         margin-top: 200px;
       }
       #socialIcon {
+      }
+      #animation {
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  animation-name: ani;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
 
-      }
-      div > img {
-        height: 34px;
-        width: 39px;
-        position: relative;
-        left: 977px;
-        bottom: -198px;
-        opacity: 1;
-      }
+@keyframes ani {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  100% {
+    opacity: 1;
+    height: 100px;
+  }
+}
+
       #aboutMe {
         height: 38px;
         width: 117px;
@@ -51,14 +62,47 @@
       button {
         height: 43px;
         width: 136px;
-        box-shadow: 2px solid gray;
+        box-shadow: 2px 2px gray;
+        border-radius: 12px;
       }
+      #launch {
+  background-color: cornflowerblue;
+  opacity: 0;
+  animation-name: launch-btn;
+  animation-duration: 2s;
+  animation-delay: 5s;
+  /* animation-iteration-count: 10; */
+  animation-fill-mode: forwards;
+  position: absolute;
+  right: 400px;
+}
+#launch:hover, #aboutMe:hover{
+  background-color: white;
+  height: calc(+45px);
+}
+
+@keyframes launch-btn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
     </style>
   </head>
   <body>
     <div id="main">
+      <div id="animation">
+        <img src="./Images/Rectangle 1.png" />
+        <img src="./Images/Rectangle 2.svg" />
+      </div>
       <button id="aboutMe">About Me</button>
       <p id="header">WelCome To TMS</p>
+      <a href="launch.html">
+      <button id="launch" >Launch App</button>
+    </a>
     </div>
     <div id="socialIcon">
       <img src="./Images/insta.svg" />
