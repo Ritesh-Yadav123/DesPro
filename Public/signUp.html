@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="/submit" method="POST">
+            <!-- User Input -->
+            <label for="user">Username:</label>
+            <input type="text" id="user" name="user" required maxlength="34">
+
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required maxlength="23">
+
+            <!-- Name Input -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required maxlength="34">
+
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" maxlength="34">
+
+            <!-- Profession Input -->
+            <label for="profession">Profession:</label>
+            
+            <select id="profession" name="profession" required>
+                <option val="sofware engineer">sofware engineer</option>
+                <option val="Analyst">Analyst</option>
+                <option val="Project Manager">Project Manager</option>
+                <option val="GM">GM</option>
+                <option val="Vc">Vc</option>
+            </select>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+
+</body>
+</html>
