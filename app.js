@@ -23,7 +23,7 @@ app.use(session({
 const pathname=path.join(__dirname,'Public')
 app.use(express.static(pathname));
 
-app.get("/lauch",(req,res)=>{
+app.get("/launch",(req,res)=>{
     res.sendFile(`${pathname}/launch.html`)
 })
 
@@ -37,86 +37,97 @@ app.get("*",(req,res)=>{
 })
 
 
+// Handle login form submissiond
+app.post('/login', async (req, res) => {
+  const { user, password } = req.body;
 
-// Login Route (POST)
-app.post("/login", (req, res) => {
-    const { user, password } = req.body;
-  
-    if (!user || !password) {
-      return res.status(400).send("Username and password are required!");
-    }
-  
-    const query = `SELECT * FROM signUp WHERE user = ?`;
-  
-    db.query(query, [user], (err, result) => {
+  if (!user || !password) {
+      return res.status(400).send('Username and password are required!');
+  }
+
+  const query = 'SELECT * FROM signUp WHERE user = ?';
+  db.query(query, [user], async (err, results) => {
       if (err) {
-        console.error("Error querying the database:", err);
-        return res.status(500).send("Error checking credentials");
+          console.error('Error executing query:', err);
+          return res.status(500).send('Server error');
       }
-  
-      if (result.length === 0) {
-        return res.status(401).send("Invalid username or password");
+
+      if (results.length === 0) {
+          return res.status(401).send('Invalid username or password');
       }
-  
-      bcrypt.compare(password, result[0].password, (err, isMatch) => {
-        if (err) {
-          console.error("Error comparing passwords:", err);
-          return res.status(500).send("Error comparing passwords");
-        }
-  
-        if (!isMatch) {
-          return res.status(401).send("Invalid username or password");
-        }
-  
-        req.session.user = result[0];
-        res.redirect('/dashboard');
+
+      const userRecord = results[0];
+      try {
+          const isMatch = await bcrypt.compare(password, userRecord.password);
+
+          if (isMatch) {
+              req.session.user = userRecord.user;
+              req.session.name = userRecord.name;
+              res.send('Login successful! Welcome, ' + userRecord.name + '. <a href="/dashboard">Go to Dashboard</a>');
+          } else {
+              res.status(401).send('Invalid username or password');
+          }
+      } catch (err) {
+          console.error('Error comparing passwords:', err);
+          res.status(500).send('Server error');
+      }
+  });
+});
+
+app.post('/submit', (req, res) => {
+  const { user, password, name, email, profession } = req.body;
+
+  if (!user || !password || !name || !profession) {
+      return res.status(400).send('All fields are required!');
+  }
+
+  // Hash the password
+  bcrypt.hash(password, 10, (err, hashedPassword) => {
+      if (err) {
+          console.error('Error hashing password:', err);
+          return res.status(500).send('Error processing password');
+      }
+
+      const query = `
+          INSERT INTO signUp (user, password, name, email, profession)
+          VALUES (?, ?, ?, ?, ?)
+      `;
+
+      db.query(query, [user, hashedPassword, name, email, profession], (err, result) => {
+          if (err) {
+              console.error('Error inserting data:', err);
+              if (err.code === 'ER_DUP_ENTRY') {
+                  return res.status(400).send('Username already exists');
+              }
+              return res.status(500).send('Error saving data');
+          }
+          res.send('Form submitted successfully! <a href="/launch">Go to Login</a>');
       });
-    });
   });
-  
+});
 
-// Dashboard Route (Protected)
+
+// Sample protected dashboard route
 app.get('/dashboard', (req, res) => {
-    if (!req.session.user) {
-        return res.redirect('/login');  // Redirect to login page if not logged in
-    }
-
-    res.send(`Welcome, ${req.session.user.name}! <a href="/logout">Log out</a>`);
+  if (!req.session.user) {
+      return res.redirect('/launch');
+  }
+  res.send(`Welcome to the TMS Dashboard, ${req.session.name}! <a href="/logout">Logout</a>`);
 });
 
-// Logout Route
+// Logout route
 app.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).send("Error logging out");
-        }
-        res.redirect('/login');
-    });
-});
-
-app.post("/submit", (req, res) => {
-    const { user, password, name, email, profession } = req.body;
-  
-    // Log the data to ensure it's being received properly
-    console.log(req.body);
-  
-    if (!user || !password || !name || !profession) {
-      return res.status(400).send("All fields are required!");
-    }
-  
-    const query = `
-      INSERT INTO signUp (user, password, name, email, profession)
-      VALUES (?, ?, ?, ?, ?)
-    `;
-  
-    db.query(query, [user, password, name, email, profession], (err, result) => {
+  req.session.destroy((err) => {
       if (err) {
-        console.error("Error inserting data:", err);
-        return res.status(500).send("Error saving data");
+          console.error('Error destroying session:', err);
+          return res.status(500).send('Error logging out');
       }
-      res.send('Form submitted successfully! <a href="/">Go to Home</a>');
-    });
+      res.redirect('/launch');
   });
+});
   
+const task = require('./task');
+app.use('/task', task);
+
 
 app.listen(3000);
