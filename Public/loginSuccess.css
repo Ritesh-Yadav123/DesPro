@@ -1,0 +1,38 @@
+.logIn {
+    background-color: #28a745; /* Softer green */
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+    text-align: center;
+  }
+  
+  .logIn a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+  .logIn a:hover {
+    color: #d4ffd4;
+    text-decoration: none;
+  }
+  
+  /* Optional: Add a fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
