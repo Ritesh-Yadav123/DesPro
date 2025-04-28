@@ -30,6 +30,8 @@ app.get("/launch", (req, res) => {
 app.get("/signUp", (req, res) => {
   res.sendFile(`${pathname}/signUp.html`);
 });
+const task = require("./task");
+app.use("/task", task);
 
 app.get("*", (req, res) => {
   res.sendFile(`${pathname}/error.html`);
@@ -61,17 +63,24 @@ app.post("/login", async (req, res) => {
       if (isMatch) {
         req.session.user = userRecord.user;
         req.session.name = userRecord.name;
-        // res.send("<span class='logIn'>Login successful! Welcome, " + userRecord.name + ". <a href='/dashboard'>Go to Dashboard</a></span>");
-        res.send(`<!DOCTYPE html>
-  <html>
-  <head>
-    <title>Login Successful</title>
-    <link rel="stylesheet" href="/loginSuccess.css">
-  </head>
-  <body>
-    <span class="logIn">Login successful! Welcome, ${userRecord.name}. <a href="/dashboard">Go to Dashboard</a></span>
-  </body>
-  </html>`);
+  //       res.send(`<!DOCTYPE html>
+  // <html>
+  // <head>
+  //   <title>Login Successful</title>
+  //   <link rel="stylesheet" href="/loginSuccess.css">
+  // </head>
+  // <body>
+  //   <span class="logIn">Login successful! Welcome, ${userRecord.name}. <a href="/task">Go to Dashboard</a></span>
+  // </body>
+  // </html>`);
+  req.session.save((err) => {
+    if (err) {
+      console.error("Session save error:", err);
+      return res.status(500).send("Server error");
+    }
+    res.redirect("/task");  // Redirect to task page directly after saving session
+  });
+  
       } else {
         res.status(401).send("Invalid username or password");
       }
@@ -141,7 +150,5 @@ app.get("/logout", (req, res) => {
   });
 });
 
-const task = require("./task");
-app.use("/task", task);
 
 app.listen(3000);
