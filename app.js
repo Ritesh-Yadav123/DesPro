@@ -6,6 +6,10 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 const app = express();
+app.set("view engine", "ejs");
+// Set the directory where the template files are located
+app.set("views", path.join(__dirname, "views"));
+
 
 // Set up middleware
 app.use(bodyParser.urlencoded({ extended: true }));
