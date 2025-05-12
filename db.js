@@ -4,7 +4,7 @@ const db=mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"ritesh",
-    database:"tms"
+    database:"design_project"
 });
 
 db.connect((err)=>{
