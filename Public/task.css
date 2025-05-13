@@ -1,0 +1,86 @@
+
+body {
+    background-color: #F7E9DF;
+    overflow-x: hidden;
+}
+
+#heading{
+    text-align: center;
+}
+
+#userName {
+    text-align: center;
+    position: relative;
+    top:-50px;
+    right: -545px;
+}
+#cir1 {
+    height: 198px;
+    width: 193px;
+    border-radius: 50%;
+    background-color: #74df74;
+    box-shadow: 20px 29px 83px limegreen;
+    position: absolute;
+    top: -9px;
+    left: -50px;
+    border: none;
+}
+#cir2 {
+    height: 198px;
+    width: 193px;
+    border-radius: 50%;
+    background-color: #26EEF2;
+    box-shadow: 20px 29px 83px #26EEF2;
+    position: absolute;
+    top: 92px;
+    left: -80px;
+}
+.sort-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 20px;
+  position: relative;
+  right: -1022px;
+  top: -163px;
+  /* background-color: rgb(243, 198, 198); */
+}
+
+.dropdown {
+  display: inline-block;  /* ✅ Inline layout */
+  position: relative;
+  margin-top: 15px;       /* ✅ Dropdown appears 15px below top */
+}
+
+.dropbtn {
+  background-color: #f7e9df;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;               /* Appear just below the button */
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  border: 1px solid #ccc;
+  z-index: 999;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
