@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="task.css" />
     <style>
-        button{
-            color: rgb(255, 162, 0);
-        }
+      button {
+        color: rgb(255, 162, 0);
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <h1 id="heading">BLOGING SYSTEM</h1>
-    <h5 id="userName">Hi, RITESH</h5>
-<div class="dropdown">
-  <button class="dropbtn">Sort By ▼</button>
- <div class="sort-container">
-  <div class="dropdown">
-    <button class="dropbtn">Sort By ▼</button>
-    <div class="dropdown-content">
-      <a href="#">Latest</a>
-      <a href="#">Oldest</a>
-      <a href="#">A to Z</a>
-      <a href="#">Z to A</a>
+    <h5 id="userName">Hi, <%=name%></h5>
+    <div class="dropdown">
+      <button class="dropbtn">Sort By ▼</button>
+      <div class="sort-container">
+        <div class="dropdown">
+          <button class="dropbtn">Sort By ▼</button>
+          <div class="dropdown-content">
+            <a href="#">Latest</a>
+            <a href="#">Oldest</a>
+            <a href="#">A to Z</a>
+            <a href="#">Z to A</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-</div>
     <div id="cir1"></div>
     <div id="cir2"></div>
+    <div id="main">
+      <!-- <div id="forUser">
+        <span class="profileImage"><%= name[0] %></span>
+        <div class="input-container">
+          <input
+            type="text"
+            placeholder="What is on your mind"
+            id="userInput"
+          />
+          <span class="icons">📍 ⏰ 😊 🎬 🔤</span>
+        </div>
+      </div> -->
+      <form action="/task" method="POST">
+  <input type="hidden" name="user" value="<%= name %>">
+  <textarea name="description" placeholder="What is on your mind" required></textarea><br>
+  <button type="submit">Add Task</button>
+</form>
 
-</body>
+    </div>
+  </body>
 </html>

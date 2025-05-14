@@ -1,39 +1,38 @@
-
 body {
-    background-color: #F7E9DF;
-    overflow-x: hidden;
+  background-color: #f7e9df;
+  overflow-x: hidden;
 }
 
-#heading{
-    text-align: center;
+#heading {
+  text-align: center;
 }
 
 #userName {
-    text-align: center;
-    position: relative;
-    top:-50px;
-    right: -545px;
+  text-align: center;
+  position: relative;
+  top: -50px;
+  right: -545px;
 }
 #cir1 {
-    height: 198px;
-    width: 193px;
-    border-radius: 50%;
-    background-color: #74df74;
-    box-shadow: 20px 29px 83px limegreen;
-    position: absolute;
-    top: -9px;
-    left: -50px;
-    border: none;
+  height: 198px;
+  width: 193px;
+  border-radius: 50%;
+  background-color: #74df74;
+  box-shadow: 20px 29px 83px limegreen;
+  position: absolute;
+  top: -9px;
+  left: -50px;
+  border: none;
 }
 #cir2 {
-    height: 198px;
-    width: 193px;
-    border-radius: 50%;
-    background-color: #26EEF2;
-    box-shadow: 20px 29px 83px #26EEF2;
-    position: absolute;
-    top: 92px;
-    left: -80px;
+  height: 198px;
+  width: 193px;
+  border-radius: 50%;
+  background-color: #26eef2;
+  box-shadow: 20px 29px 83px #26eef2;
+  position: absolute;
+  top: 92px;
+  left: -80px;
 }
 .sort-container {
   display: flex;
@@ -47,9 +46,9 @@ body {
 }
 
 .dropdown {
-  display: inline-block;  /* ✅ Inline layout */
+  display: inline-block; /* ✅ Inline layout */
   position: relative;
-  margin-top: 15px;       /* ✅ Dropdown appears 15px below top */
+  margin-top: 15px; /* ✅ Dropdown appears 15px below top */
 }
 
 .dropbtn {
@@ -65,7 +64,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;               /* Appear just below the button */
+  top: 100%; /* Appear just below the button */
   right: 0;
   background-color: white;
   min-width: 160px;
@@ -81,6 +80,65 @@ body {
   color: black;
 }
 
+.dropdown-content a:hover {
+  background-color: #f7e9df;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+#forUser {
+  position: absolute;
+  left: 372px;
+  top: 86px;
+}
+.profileImage {
+  background-color: rgb(112, 221, 23);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+#userInput {
+  border: none;
+  height: 123px;
+  width: 620px;
+  position: relative;
+  top: -89px;
+  right: -67px;
+  border-radius: 20px;
+  background-color: #82e9eb;
+  box-shadow: 2px 2px 2px gray;
+  font-size: 34px;
+}
+
+input::placeholder {
+  color: gray;
+  font-style: italic;
+  font-size: 34px;
+  opacity: 0.7; /* Controls the transparency of the placeholder text */
+}
+
+#userInput {
+  font-size: 24px !important;
+}
+
+.icons {
+  /* position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;  */
+  position: relative;
+  left: -79px;
+  top: -44px;
 }

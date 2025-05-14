@@ -36,6 +36,8 @@ app.get("/signUp", (req, res) => {
 });
 const task = require("./task");
 app.use("/task", task);
+// app.use("/tasks", task);
+
 
 app.get("*", (req, res) => {
   res.sendFile(`${pathname}/error.html`);
@@ -67,16 +69,7 @@ app.post("/login", async (req, res) => {
       if (isMatch) {
         req.session.user = userRecord.user;
         req.session.name = userRecord.name;
-  //       res.send(`<!DOCTYPE html>
-  // <html>
-  // <head>
-  //   <title>Login Successful</title>
-  //   <link rel="stylesheet" href="/loginSuccess.css">
-  // </head>
-  // <body>
-  //   <span class="logIn">Login successful! Welcome, ${userRecord.name}. <a href="/task">Go to Dashboard</a></span>
-  // </body>
-  // </html>`);
+        
   req.session.save((err) => {
     if (err) {
       console.error("Session save error:", err);
