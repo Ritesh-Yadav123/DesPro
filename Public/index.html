@@ -98,10 +98,10 @@
         <img src="./Images/Rectangle 1.png" />
         <img src="./Images/Rectangle 2.svg" />
       </div>
-      <button id="aboutMe">About Me</button>
-      <p id="header">WelCome To TMS</p>
+      <button id="aboutMe" onclick="yetTodo()">About Me</button>
+      <p id="header">WelCome To BS</p>
       <a href="launch.html">
-      <button id="launch" >Launch App</button>
+      <button id="launch" onclick="permission()">Launch App</button>
     </a>
     </div>
     <div id="socialIcon">
@@ -109,5 +109,13 @@
       <img src="./Images/whatsApp.svg" />
       <img src="./Images/Vector.svg" />
     </div>
+    <script>
+      function yetTodo(){
+        window.alert("Sorry, About Section yet to be completed");
+      }
+      function permission(){
+        window.confirm("Do you want to lauch the app ?");
+      }
+    </script>
   </body>
 </html>

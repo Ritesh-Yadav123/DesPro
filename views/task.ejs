@@ -42,12 +42,32 @@
           <span class="icons">📍 ⏰ 😊 🎬 🔤</span>
         </div>
       </div> -->
-      <form action="/task" method="POST">
-  <input type="hidden" name="user" value="<%= name %>">
-  <textarea name="description" placeholder="What is on your mind" required></textarea><br>
-  <button type="submit">Add Task</button>
+<form action="/task" method="POST" class="task-form">
+  <input type="hidden" name="user" value="<%= name %>" />
+  <div class="input-group">
+    <input
+      type="text"
+      name="title"
+      placeholder="Task Title"
+      required
+      class="task-title"
+    />
+    <textarea
+      name="description"
+      placeholder="What's on your mind?"
+      required
+      class="task-description"
+    ></textarea>
+  </div>
+  <div class="icon-bar">
+    <button type="button" class="icon-btn" title="Add Location">📍</button>
+    <button type="button" class="icon-btn" title="Schedule">⏰</button>
+    <button type="button" class="icon-btn" title="Add Mood">😊</button>
+    <button type="button" class="icon-btn" title="Attach Media">🎬</button>
+    <button type="button" class="icon-btn" title="Format Text">🔤</button>
+  </div>
+  <button type="submit" class="submit-btn">Add Task</button>
 </form>
-
     </div>
   </body>
 </html>
