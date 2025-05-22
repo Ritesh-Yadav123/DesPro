@@ -100,9 +100,7 @@
       </div>
       <button id="aboutMe" onclick="yetTodo()">About Me</button>
       <p id="header">WelCome To BS</p>
-      <a href="launch.html">
       <button id="launch" onclick="permission()">Launch App</button>
-    </a>
     </div>
     <div id="socialIcon">
       <img src="./Images/insta.svg" />
@@ -114,7 +112,15 @@
         window.alert("Sorry, About Section yet to be completed");
       }
       function permission(){
-        window.confirm("Do you want to lauch the app ?");
+       const permission=window.confirm("Do you want to lauch the app ?");
+       if(permission){
+        alert("APP IS LAUNCHING");
+        window.location.href = "/launch.html";
+       }
+       else{
+        alert("By by by...")
+       }
+
       }
     </script>
   </body>
